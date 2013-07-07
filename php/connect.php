@@ -9,9 +9,9 @@
 	//AmountTime = minutes
 	$fields = " (Name, Date, AmountTime, Account, HourlyRate, JobType, IsPaid) VALUES ";
 
-	$conn = init_connection_and_table($user, $pass, $dbname, $tablename);
+	$conn = init_connection_and_table($host, $user, $pass, $dbname, $tablename);
 	
-	function init_connection_and_table($user, $pass, $dbname, $tablename){
+	function init_connection_and_table($host, $user, $pass, $dbname, $tablename){
 		$conn = mysqli_connect($host, $user, $pass);
 
 		if($conn){
