@@ -56,7 +56,7 @@
 					$operator = ">='";
 				} else if ($key == "enddate"){
 					$key = "Date";
-					$operator = ">='";
+					$operator = "<='";
 				} else {  
 					$operator = "='";
 				}
@@ -77,6 +77,7 @@
 			$sql = substr($sql, 0, strlen($sql)-5);
 
 		}
+		//echo $sql;
 		return $sql;
 	}	
 	function getTable($result, $isInvoice){
