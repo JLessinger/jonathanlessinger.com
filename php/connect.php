@@ -4,6 +4,8 @@
 	$tablename = "Timeslots";
 	$user = "jlessinger";
 	$pass = "pass";
+	$host = "localhost";
+	//$host = "mysql.jonathanlessinger.com";
 	//AmountTime = minutes
 	$fields = " (Name, Date, AmountTime, Account, HourlyRate, JobType, IsPaid) VALUES ";
 
@@ -30,7 +32,7 @@
 
 
 
-		$conn = mysqli_connect('localhost', 'jlessinger', 'pass', $dbname);
+		$conn = mysqli_connect($host, $user, $pass, $dbname);
 		
 		if($conn){
 		//	echo "connected successfully to db1<br>";
