@@ -39,6 +39,11 @@ $(function() {
     		$("#view").html("Enter account.");
     		return false;
     	}
+      if(document.getElementById('paidradio').checked) {
+        $("#view").html("Cannot invoice paid jobs.");
+        return false;
+      }
+
         //proceed with form
      	dataString = $('#viewForm').serialize();
    //  	alert(dataString);
