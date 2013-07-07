@@ -12,7 +12,7 @@
 	$conn = init_connection_and_table($user, $pass, $dbname, $tablename);
 	
 	function init_connection_and_table($user, $pass, $dbname, $tablename){
-		$conn = mysqli_connect('localhost', $user, $pass);
+		$conn = mysqli_connect($host, $user, $pass);
 
 		if($conn){
 		//	echo "connected successfully as jlessinger<br>";
