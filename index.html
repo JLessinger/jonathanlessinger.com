@@ -11,16 +11,16 @@
 		<form name="EnterForm" id="EnterForm" action="./php/enter.php" method="post" onsubmit="return(requireFilled(this.id))">
 			<ul>
 				<li>Name: </br>
-					Jonathan<input type="radio" name="name" value="Jonathan">
-					Heath<input type="radio" name="name" value="Heath"></li>
-				<li>Date: <input type="date" name="date"></li>
-				<li>Time: <input type="number" name="hours">:<input type="number" name="minutes"></li>
-				<li>Account: <input type="text" name="account"></li>
-				<li>Hourly Rate: $<input type="number" name="rate"></li>
+					Jonathan<input type="radio" name="Name" value="Jonathan">
+					Heath<input type="radio" name="Name" value="Heath"></li>
+				<li>Time: <input id="hrs" type="number" name="hours">:<input id="mins" type="number" name="minutes"></li>
+				<li>Account: <input type="text" name="Account"></li>
+				<li>Hourly Rate: $<input type="number" name="HourlyRate"></li>
+				<li>Date: <input type="date" name="Date"></li>
 				<li>Job Type: </br> 
-					Web<input type="radio" name="job" value="Web">
-					Video<input type="radio" name="job" value="Video">
-					Audio<input type="radio" name="job" value="Audio">
+					Web<input type="radio" name="JobType" value="Web">
+					Video<input type="radio" name="JobType" value="Video">
+					Audio<input type="radio" name="JobType" value="Audio">
 				</li>
 				<li><input type="submit" value="Submit"></li>
 			</ul>

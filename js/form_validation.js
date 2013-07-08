@@ -16,10 +16,14 @@ function requireFilled(formId){
 	//all non-empty inputs
 	var filled = [];
 
+	//time considered filled with hours OR minutes
+	var timefilled = false;
+
 	//for each input item, determine if filled out
 	for(var i = 0; i < inputs.length; i++){
 
 		var item = inputs[i];
+	//	alert(item.name);
 		if(item.type=="radio"){
 			radios.push(item);
 			if(item.checked){
@@ -34,12 +38,31 @@ function requireFilled(formId){
 			//ignore
 		} else {
 			if(item.value == ""){
-				empty.push(item);
+				if(item.name!="hours" && item.name!="minutes"){
+					empty.push(item);
+				}
 			//	alert("missing " + item.name);
 			} else {
-				filled.push(item);
+				if(item.name=="hours" || item.name=="minutes"){
+					timefilled = true;
+				} else {
+					filled.push(item);
+
+				}
 			}
 		}
+	}
+
+	//special case for time - considered filled out if EITHER hrs/mins present
+	var hrs = document.getElementById("hrs");
+	var mins = document.getElementById("mins");
+
+	if(timefilled){
+		filled.push(hrs);
+		filled.push(mins);
+	} else {
+		empty.push(hrs);
+		empty.push(mins);
 	}
 
 	//add radio and checkboxes to empty/filled
