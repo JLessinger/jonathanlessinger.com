@@ -1,11 +1,11 @@
 <?php			
 	
-	$dbname = "db1";
+	$dbname = "timeslotdb";
 	$tablename = "Timeslots";
 	$user = "jlessinger";
-	$pass = "pass";
+	$pass = "m0NeYdb";
 	$host = "localhost";
-	//$host = "mysql.jonathanlessinger.com";
+	$host = "mysql.jonathanlessinger.com";
 	//AmountTime = minutes
 	$fields = " (Name, Date, AmountTime, Account, HourlyRate, JobType, IsPaid) VALUES ";
 
