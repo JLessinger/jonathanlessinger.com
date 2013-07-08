@@ -4,11 +4,15 @@
 		<meta charset="UTF-8">
 	</head>
 	<body>		
+		<script type="text/javascript">
+			window.viewed = false;
+		</script>
 		<script type="text/javascript" src="./js/jquery-1.10.1.js"></script>
 		<script type="text/javascript" src="./js/paid_toggle_ajax.js"></script>
 		<script type="text/javascript" src="./js/filter_buttons.js"></script>
 		<script type="text/javascript" src="./js/form_validation.js"></script>
-
+		
+		<div id="message" style="color:#D17600;"><h1>Make sure to view existing entries before entering - be consistent.<h1></div>
 		<h1>Enter Time Slot</h1>
 		<form name="EnterForm" id="EnterForm" action="./php/enter.php" method="post" onsubmit="return(validForm(this.id))">
 			<ul>

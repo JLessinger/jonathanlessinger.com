@@ -1,14 +1,28 @@
 function validForm(formId){
 	var form = document.getElementById(formId);
 	var inputs = form.getElementsByTagName('input');
-	
+
+
 	var filled = fieldsFilled(inputs);
 	//var formed = fieldsWellFormed(inputs);
 	
 	//html5 browsers guarantee this
 	var formed = true;
-	
-	return filled && formed;
+
+	if(!viewed){
+
+		$("#message").css("border", "none");
+		$("#message").css("text-decoration", "none");
+
+		setTimeout(function(){
+					$('#message').css('border', '2px solid red');
+					$('#message').css('text-decoration', 'underline');
+					} , 
+					150);
+
+	}
+
+	return viewed && filled && formed;
 }
 
 function fieldsWellFormed(inputs){

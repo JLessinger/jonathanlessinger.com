@@ -1,9 +1,10 @@
 $(function() {
+
 	//console.log("running");  
  // 	$('.error').hide();  
   	$(".viewbutton").click(function() {  
     // validate and process form here  
-      
+      viewed = true;
     	//$('.error').hide();  
 
 

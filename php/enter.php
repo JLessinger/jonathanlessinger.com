@@ -74,7 +74,7 @@
 			$fields = " (";
 			$values = " VALUES (";
 			foreach($post as $key => $val){
-				echo "<br>key: " . $key . " val: " . $val; 
+			//	echo "<br>key: " . $key . " val: " . $val; 
 				//skip hours key. add to minutes key, and include sql for minutes
 				$hours;
 				if($key == "hours"){
