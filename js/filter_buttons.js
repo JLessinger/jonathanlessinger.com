@@ -37,7 +37,7 @@ $(function() {
         //validate form entry
     	var acc = $("#viewForm").find('input[name=Account]').val();
     	if(!acc || acc.length == 0){
-    		$("#view").html("Enter account.");
+    		$("#invoiceResponse").html("Enter account.");
     		return false;
     	}
       if(document.getElementById('paidradio').checked) {
