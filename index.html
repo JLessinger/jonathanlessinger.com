@@ -12,43 +12,48 @@
 		<script type="text/javascript" src="./js/filter_buttons.js"></script>
 		<script type="text/javascript" src="./js/form_validation.js"></script>
 		
+		<link rel="stylesheet" type="text/css" href="./css/style.css">
+
 		<div id="message" style="color:#D17600;"><h1>Make sure to view existing entries before entering - be consistent.<h1></div>
-		<h1>Enter Time Slot</h1>
-		<form name="EnterForm" id="EnterForm" action="./php/enter.php" method="post" onsubmit="return(validForm(this.id))">
-			<ul>
-				<li>Name: </br>
-					Jonathan<input type="radio" name="Name" value="Jonathan">
-					Heath<input type="radio" name="Name" value="Heath"></li>
-				<li>Time: <input id="hrs" type="number" name="hours">:<input id="mins" type="number" name="minutes"></li>
-				<li>Account: <input type="text" name="Account"></li>
-				<li>Hourly Rate: $<input type="number" name="HourlyRate"></li>
-				<li>Date: <input type="date" name="Date"></li>
-				<li>Job Type: </br> 
-					Web<input type="radio" name="JobType" value="Web">
-					Video<input type="radio" name="JobType" value="Video">
-					Audio<input type="radio" name="JobType" value="Audio">
-				</li>
-				<li><input type="submit" value="Submit"></li>
-			</ul>
-		</form>
-		<h1>Delete Time Slot</h1>
-			<form action="./php/delete.php" method="post">
-			<ul>
-				<li>ID: <input type="number" name="id"></li>
-			</ul>
-			<li><input type="submit" value="Delete"></li>
+		<div id="updateSection">
+			<h1>Enter Time Slot</h1>
+			<form name="EnterForm" id="EnterForm" action="./php/enter.php" method="post" onsubmit="return(validForm(this.id))">
+				<ul>
+					<li>Name: </br>
+						Jonathan<input type="radio" name="Name" value="Jonathan">
+						Heath<input type="radio" name="Name" value="Heath"></li>
+					<li>Time: <input id="hrs" type="number" name="hours">:<input id="mins" type="number" name="minutes"></li>
+					<li>Account: <input type="text" name="Account"></li>
+					<li>Hourly Rate: $<input type="number" name="HourlyRate"></li>
+					<li>Date: <input type="date" name="Date"></li>
+					<li>Job Type: </br> 
+						Web<input type="radio" name="JobType" value="Web">
+						Video<input type="radio" name="JobType" value="Video">
+						Audio<input type="radio" name="JobType" value="Audio">
+					</li>
+					<li><input type="submit" value="Submit"></li>
+				</ul>
 			</form>
-		<h1>Toggle Slot Paid</h1>
-		<h2>Default = unpaid</h2>
-			<form action="./php/toggle_paid.php" method="post">
-			<ul>
-				<li>ID: <input type="number" name="id" onkeyup="confirmToggle(this.value)"></li>
-				<span id="usermessage"></span>
-			</ul>
-			<li><input type="submit" value="Update"></li>
+			<h1>Delete Time Slot</h1>
+				<form action="./php/delete.php" method="post">
+				<ul>
+					<li>ID: <input type="number" name="id"></li>
+				</ul>
+				<li><input type="submit" value="Delete"></li>
+				</form>
+			<h1>Toggle Slot Paid</h1>
+			<h2>Default = unpaid</h2>
+				<form action="./php/toggle_paid.php" method="post">
+				<ul>
+					<li>ID: <input type="number" name="id" onkeyup="confirmToggle(this.value)"></li>
+					<span id="usermessage"></span>
+				</ul>
+				<li><input type="submit" value="Update"></li>
 			</form>
-		<h1>View Entries</h1>
-		<h2>Fill out any fields to filter results</h2>
+		</div>
+		<div id="viewSection">
+			<h1>View Entries</h1>
+			<h2>Fill out any fields to filter results</h2>
 			<form id="viewForm" action="">
 				<ul>
 					<li>ID: <input type="number" name="id"></li>
@@ -74,6 +79,7 @@
 					<li><input class="invoicebutton" type="submit" value="Invoice"></li>
 				</ul>
 			</form>
-			<div id="view"></div>
+		</div>
+		<div id="view"></div>
 	</body>
 </html>

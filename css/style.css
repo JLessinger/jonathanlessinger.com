@@ -1,0 +1,13 @@
+#updateSection{
+	float:left;
+}
+
+#viewSection{
+	float:left;
+}
+
+#view{
+	float:left;
+	overflow-x:hidden;
+	height:500px;
+}
