@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
-	<head></head>
+	<head>
+		<meta charset="UTF-8">
+	</head>
 	<body>		
 		<script type="text/javascript" src="./js/jquery-1.10.1.js"></script>
 		<script type="text/javascript" src="./js/paid_toggle_ajax.js"></script>
@@ -8,7 +10,7 @@
 		<script type="text/javascript" src="./js/form_validation.js"></script>
 
 		<h1>Enter Time Slot</h1>
-		<form name="EnterForm" id="EnterForm" action="./php/enter.php" method="post" onsubmit="return(requireFilled(this.id))">
+		<form name="EnterForm" id="EnterForm" action="./php/enter.php" method="post" onsubmit="return(validForm(this.id))">
 			<ul>
 				<li>Name: </br>
 					Jonathan<input type="radio" name="Name" value="Jonathan">

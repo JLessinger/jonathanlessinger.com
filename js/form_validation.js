@@ -1,9 +1,121 @@
-function requireFilled(formId){
-
+function validForm(formId){
 	var form = document.getElementById(formId);
-
 	var inputs = form.getElementsByTagName('input');
 	
+	var filled = fieldsFilled(inputs);
+	//var formed = fieldsWellFormed(inputs);
+	
+	//html5 browsers guarantee this
+	var formed = true;
+	
+	return filled && formed;
+}
+
+function fieldsWellFormed(inputs){
+	for(var i = 0; i < inputs.length; i++){
+		var item = inputs[i];
+		
+		alert(item.type);
+		if(item.type=="date"){
+		//	alert(".");
+			if(item.val==null){
+				return false;
+			}
+			var pieces = item.val.split("-");
+		//	alert(pieces.length);
+			if(pieces.length!=3){
+				return false;
+			}
+			for(var piece in pieces){
+				if(parseInt(piece)=="NaN"){
+					return false;
+				}
+				if(parseInt(piece) <= 0){
+					return false;
+				}
+			}
+			//contains 3 positive integers
+		
+			var year = pieces[0];
+			var month = pieces[1];
+			var day = pieces[2];
+			if(year.length!=4){
+				return false;
+			}
+			if(month.length!=2){
+				return false;
+			}
+			if(day.length!=2){
+				return false;
+			}
+			//contains 3 positive integers of the correct lengths
+			if(parseInt(month) > 12){
+				return false;
+			}
+			if(!dateExists(month, day, year)){
+				return false;
+			}
+		}
+	}
+	return true;
+}
+
+function leapYear(year){
+	return ((year % 4 == 0 && year % 100 != 0) || year % 400 == 0);
+}
+
+function dateExists(month, day, year){
+	var monthInt = parseInt(month);
+	var dayInt = parseInt(day);
+	var yearInt = parseInt(year);
+	var lastDay;
+	switch(monthInt){
+		case 1:
+		lastDay = 31;
+		break;
+		case 2:
+			if(leapYear(year)){
+				lastDay = 29;
+			} else {
+				lastDay = 28;
+			}
+		break;
+		case 3:
+		lastDay = 31;
+		break;
+		case 4:
+		lastDay = 30;
+		break;
+		case 5:
+		lastDay = 31;
+		break;
+		case 6:
+		lastDay = 30;
+		break;
+		case 7:
+		lastDay = 31;		
+		break;
+		case 8:
+		lastDay = 31;		
+		break;
+		case 9:
+		lastDay = 30;
+		break;
+		case 10:
+		lastDay = 31;
+		break;
+		case 11:
+		lastDay = 30;
+		break;
+		case 12:
+		lastDay = 31;
+		break;
+	}
+	return dayInt <= lastDay;
+}
+
+function fieldsFilled(inputs){
+
 	//holds all input objects
 	var checkboxes = [];
 	var radios = [];
@@ -23,7 +135,7 @@ function requireFilled(formId){
 	for(var i = 0; i < inputs.length; i++){
 
 		var item = inputs[i];
-	//	alert(item.name);
+	//	alert(item.value);
 		if(item.type=="radio"){
 			radios.push(item);
 			if(item.checked){
@@ -93,7 +205,6 @@ function requireFilled(formId){
 		empty[i].parentNode.style.border = "2px solid red";
 	}	
 
-	//allow submission only if form filled
-	//console.log(empty.length);
+
 	return (empty.length==0);
 }
