@@ -18,6 +18,7 @@
 		$timefilled = false;
 		foreach($post as $key => $val){
 
+		//	echo $key . " " . $val;
 			//empty field
 			if(strlen($val)==0){
 				if($key!="hours" && $key!="minutes"){
