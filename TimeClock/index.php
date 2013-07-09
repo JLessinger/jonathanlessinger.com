@@ -1,3 +1,14 @@
+<!--?php
+if (!isset($_SERVER['PHP_AUTH_USER'])) {
+    header('WWW-Authenticate: Basic realm="My Realm"');
+    header('HTTP/1.0 401 Unauthorized');
+    echo 'Text to send if user hits Cancel button';
+    exit;
+} else {
+    echo "<p>Hello {$_SERVER['PHP_AUTH_USER']}.</p>";
+    echo "<p>You entered {$_SERVER['PHP_AUTH_PW']} as your password.</p>";
+}
+?-->
 <!DOCTYPE html>
 <html>
 	<head>
@@ -16,7 +27,7 @@
 
 		<div id="updateSection">
 			<h1>Enter Time Slot</h1>
-			<form name="EnterForm" id="EnterForm" action="./php/enter.php" method="post" onsubmit="return(validForm(this.id))">
+			<form name="EnterForm" id="EnterForm" action="./TimeClock/php/enter.php" method="post" onsubmit="return(validForm(this.id))">
 				<ul>
 					<li>Name: </br>
 						Jonathan<input type="radio" name="Name" value="Jonathan">

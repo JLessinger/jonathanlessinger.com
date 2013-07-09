@@ -1,7 +1,11 @@
 <!DOCTYPE html>
 <html>
-<head></head>
-<?php
+<head>
+    <meta http-equiv="refresh" content="0; url=./TimeClock/">
+</head>
+<body></body>
+</html>
+<!--?php
 
 require 'password_compat-master/lib/password.php';
 // index.php
@@ -24,14 +28,17 @@ function verifyPW($pw){
 }
 
 $msg = "";
+$logged_in;
 
 switch ($_REQUEST['page']) {
     case 'timeclock':
         // 2. or here
     	if(verifyPW($_REQUEST['password'])){
         	include 'TimeClock/index.php';
+            $logged_in = true;
     	} else {
     		$msg = "Password incorrect.";
+            $logged_in = false;
     	}
     	//echo "tc";
         break;
@@ -48,14 +55,14 @@ switch ($_REQUEST['page']) {
 // make sure to break direct access
   defined('RUNNING_APP') or die('Cannot access this script directly'); 
  
-
-echo "<body>
-<form action='./index.php?page=timeclock' method='POST'>
-Password:<input name='password' type='password'>" . $msg . "<br>
-<input type='hidden' name='page' value='timeclock'>
-<input type='submit' value='Log in'>
-</form>
-</body>
-</html>";
-
-?>
+if(!$logged_in){
+    echo "<body>
+    <form action='./index.php?page=timeclock' method='POST'>
+    Password:<input name='password' type='password'>" . $msg . "<br>
+    <input type='hidden' name='page' value='timeclock'>
+    <input type='submit' value='Log in'>
+    </form>
+    </body>
+    </html>";
+}
+?-->
