@@ -8,8 +8,7 @@
 	validateUser($_GET, $conn);
 
 	function validateUser($get, $conn){
-		global $tablename;
-		$sql = "SELECT IsPaid FROM " . $tablename . " 
+		$sql = "SELECT IsPaid FROM " . TABLENAME . " 
 		WHERE  id='" . $get['id'] . "'"; 
 		$res = mysqli_query($conn, $sql);
 		if($res){

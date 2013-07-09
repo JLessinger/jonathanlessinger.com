@@ -4,12 +4,11 @@
 	echo getHTML($_GET, $conn);
 //	echo 
 	function getHTML($get, $conn){
-		global $tablename;
 		
 		$field = $get['field'];
 		$html = "";
 
-		$sql = "SELECT DISTINCT " . $field . " FROM " . $tablename;
+		$sql = "SELECT DISTINCT " . $field . " FROM " . TABLENAME;
 	//	$html = "<option value='bleh'>" . $field . "</option>";
 		$result = mysqli_query($conn, $sql);
 			if($result){

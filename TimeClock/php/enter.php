@@ -7,7 +7,7 @@
 
 
 	enter_form($_POST, $conn);
-	echo "<a href=\"../index.html\">Back</a>";
+	echo "<a href=\"../\">Back</a>";
 
 	function verify($post){
 		$errors = "";

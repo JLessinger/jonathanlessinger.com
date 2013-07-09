@@ -6,7 +6,7 @@
 	ini_set('display_errors',1);
 
 	delete_entry($_POST, $conn);
-	echo "<a href=\"../index.html\">Back</a>";
+	echo "<a href=\"../\">Back</a>";
 
 
 	function verify($post){
@@ -20,8 +20,8 @@
 	}
 
 	function exists($post){
-		global $tablename, $conn;
-		$sql = "SELECT * FROM " . $tablename . 
+		global $conn;
+		$sql = "SELECT * FROM " . TABLENAME . 
 		" WHERE  id='" . $post['id'] . "'"; 
 		$res = mysqli_query($conn, $sql);
 		$record = mysqli_fetch_assoc($res);
@@ -33,13 +33,13 @@
 	}
 
 	function delete_entry($post, $conn){
-		global $tablename, $fields;
+		global $fields;
 		$msg = verify($post);
 		//id is found
 	
 		if(empty($msg)){
 
-			$sql = "DELETE FROM " . $tablename .
+			$sql = "DELETE FROM " . TABLENAME .
 			" WHERE id='" . $post['id'] . "'"; 
 			//echo $sql;
 			$result = mysqli_query($conn, $sql);

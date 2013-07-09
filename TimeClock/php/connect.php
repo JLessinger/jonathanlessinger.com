@@ -1,19 +1,22 @@
 <?php			
 	
-	$dbname = "db1";
-	//$dbname = "timeslotdb"
-	$tablename = "Timeslots";
-	$user = "jlessinger";
-	$pass = "pass";
-	//$pass = "m0NeYdb"
-	$host = "localhost";
-	//$host = "mysql.jonathanlessinger.com";
+	define(LDBNAME, "db1");
+	define(RDBNAME, "timeslotdb");
+	define(TABLENAME, "Timeslots");
+	define(USER, "jlessinger");
+	define(LPASS, "pass");
+	define(RPASS, "m0NeYdb");
+	define(LHOST, "localhost");
+	define(RHOST, "mysql.jonathanlessinger.com");
 	
 	//AmountTime = minutes
 	//$fields = " (Name, Date, AmountTime, Account, HourlyRate, JobType, IsPaid) VALUES ";
 
-	$conn = init_connection_and_table($host, $user, $pass, $dbname, $tablename);
-	
+	//local
+	$conn = init_connection_and_table(LHOST, USER, LPASS, LDBNAME, TABLENAME);
+	//remote
+	//$conn = init_connection_and_table(RHOST, USER, RPASS, RDBNAME, TABLENAME);
+
 	function init_connection_and_table($host, $user, $pass, $dbname, $tablename){
 		$conn = mysqli_connect($host, $user, $pass);
 

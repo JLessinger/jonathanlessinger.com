@@ -7,7 +7,7 @@
 
 
 	function getRows($conn, $get, $isInvoice){
-		global $tablename;
+
 		$sql = getFilters($conn, $get, $isInvoice);
 		
 		//echo $sql;
@@ -19,8 +19,7 @@
 	//returns sql for filters
 	//ranges are NOT filters
 	function getFilters($conn, $get, $isInvoice){
-		global $tablename;
-		$sql = "SELECT * FROM " . $tablename . 
+		$sql = "SELECT * FROM " . TABLENAME . 
 		" WHERE ";
 
 		$filters = 0;
@@ -71,7 +70,7 @@
 		}
 		if($filters==0){
 			//special case = no filters, get all
-			$sql = "SELECT * FROM " . $tablename; 
+			$sql = "SELECT * FROM " . TABLENAME; 
 		} else {
 			//otherwise, remove the trailing "and"
 			$sql = substr($sql, 0, strlen($sql)-5);

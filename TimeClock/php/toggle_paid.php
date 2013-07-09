@@ -6,7 +6,7 @@
 	ini_set('display_errors',1);
 
 	update_paid($_POST, $conn);
-	echo "<a href=\"../index.html\">Back</a>";
+	echo "<a href=\"../\">Back</a>";
 
 
 	function verify($post){
