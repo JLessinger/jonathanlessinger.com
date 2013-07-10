@@ -1,1 +1,13 @@
+#local
+ErrorDocument 403 http://localhost:8888/Documents/Dev/jonathanlessinger.com/index.php
+#remote
+#ErrorDocument 403 index.php
 
+#RewriteEngine On
+#RewriteBase /
+
+#local
+#RewriteCond %{REMOTE_HOST} !^localhost
+#RewriteRule [^index.php] http://localhost:8888/Documents/Dev/jonathanlessinger.com/index.php [R=301,L]
+#remote
+#RewriteRule ^(index.php) ^/index.php [R=301,L]

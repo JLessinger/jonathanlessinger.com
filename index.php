@@ -1,9 +1,25 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta http-equiv="refresh" content="0; url=./TimeClock/">
+    <!--meta http-equiv="refresh" content="0; url=./TimeClock/"-->
 </head>
-<body></body>
+<body>
+    <?php
+        if($_GET['status'] == 'loggedout'){
+            echo "Logged out";
+        }
+    ?>
+    <form action='./php/login.php' method='POST'>
+    Password:<input name='password' type='password'>
+    <?php 
+        if($_GET['status'] == "wrongpass"){
+            echo "Incorrect password";
+        }
+    ?>
+    <br>
+    <input type='submit' value='Log in'>
+    </form>
+</body>
 </html>
 <!--?php
 

@@ -54,6 +54,10 @@ $(function() {
 function viewButton(){
     // validate and process form here  
       //$('.error').hide();  
+      $("#view").html("");
+      $("#invoiceResponse").html("");
+
+
       dataString = $('#viewForm').serialize();
    //   alert(dataString);
     $.ajax({  
@@ -81,13 +85,16 @@ function invoiceButton(){
       
       //$('.error').hide();  
         //validate form entry
+     $("#view").html("");
+     $("#invoiceResponse").html("");
+
       var acc = $("#viewForm").find('input[name=Account]').val();
       if(!acc || acc.length == 0){
         $("#invoiceResponse").html("Enter account.");
         return false;
       }
       if(document.getElementById('paidradio').checked) {
-        $("#view").html("Cannot invoice paid jobs.");
+        $("#invoiceResponse").html("Cannot invoice paid jobs.");
         return false;
       }
 

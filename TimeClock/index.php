@@ -1,14 +1,15 @@
-<!--?php
-if (!isset($_SERVER['PHP_AUTH_USER'])) {
-    header('WWW-Authenticate: Basic realm="My Realm"');
-    header('HTTP/1.0 401 Unauthorized');
-    echo 'Text to send if user hits Cancel button';
-    exit;
-} else {
-    echo "<p>Hello {$_SERVER['PHP_AUTH_USER']}.</p>";
-    echo "<p>You entered {$_SERVER['PHP_AUTH_PW']} as your password.</p>";
+<?php
+ob_start();		
+session_start();
+//echo "auth: " . $_SESSION['auth'];
+if(!$_SESSION['auth']){
+	header("Location: ../index.php");
+	die();
 }
-?-->
+	//	error_reporting(E_ALL);
+	//	ini_set('display_errors',1);
+
+	?>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -24,7 +25,9 @@ if (!isset($_SERVER['PHP_AUTH_USER'])) {
 		<script type="text/javascript" src="./js/form_validation.js"></script>
 		
 		<link rel="stylesheet" type="text/css" href="./css/style.css">
-
+		<form action="../php/logout.php">
+			<input type="submit" value="log out">
+		</form>
 		<div id="updateSection">
 			<h1>Enter Time Slot</h1>
 			<form name="EnterForm" id="EnterForm" action="./TimeClock/php/enter.php" method="post" onsubmit="return(validForm(this.id))">
