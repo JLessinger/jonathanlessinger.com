@@ -1,0 +1,6 @@
+Options -Indexes
+<Files pw.txt>
+Order deny,allow
+Deny from all
+allow from localhost
+</Files>
