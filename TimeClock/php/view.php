@@ -9,7 +9,7 @@
 
 
 	function getView($conn, $get){
-
+	
 		$result = getRows($conn, $get, FALSE);
 
 		return getTable($result, FALSE);

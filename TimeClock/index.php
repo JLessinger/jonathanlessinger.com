@@ -25,7 +25,7 @@ if(!$_SESSION['auth']){
 		<script type="text/javascript" src="./js/form_validation.js"></script>
 		
 		<link rel="stylesheet" type="text/css" href="./css/style.css">
-		<form action="../php/logout.php">
+		<form action="../php/logout.php?from=home" method="POST">
 			<input type="submit" value="log out">
 		</form>
 		<div id="updateSection">

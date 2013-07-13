@@ -1,9 +1,5 @@
 Options -Indexes
 
-<Files *>
-       Order Allow,Deny
-       Deny from All
-</Files>
 
 #local
 #ErrorDocument 403 http://localhost:8888/Documents/Dev/jonathanlessinger.com/TimeClock/errordocs/tohome.php

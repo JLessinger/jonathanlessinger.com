@@ -3,6 +3,7 @@
    session_start();
    if($_SESSION['auth']){
         header("Location: ./TimeClock");
+	die();
    }
    if($_GET['status'] == 'loggedout'){
        echo "Logged out";
