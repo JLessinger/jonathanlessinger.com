@@ -18,12 +18,12 @@
 	}
 
 	function update_paid($post, $conn){
-		global $tablename, $fields;
+		global $fields;
 		$msg = verify($post);
 		if(empty($msg)){
 			//toggle paid by id
 
-			$sql = "UPDATE " . $tablename . " SET isPaid = !isPaid 
+			$sql = "UPDATE " . TABLENAME . " SET isPaid = !isPaid 
 			WHERE id='" . $post['id'] . "'"; 
 			//echo $sql;
 			$result = mysqli_query($conn, $sql);

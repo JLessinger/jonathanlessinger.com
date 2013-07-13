@@ -1,4 +1,8 @@
 <?php
+if($_GET['from'] != 'home'){
+	header("Location: ../errordocs/404.html");
+	die();
+}		 
 	session_start();
 	$password = $_POST['password'];
 

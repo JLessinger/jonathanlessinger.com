@@ -1,8 +1,13 @@
 jonathanlessinger.com
 =====================
 Localhost vs. dreamhost: comment/uncomment proper lines in 
-/TimeClock/php/connect.php and
-/.htaccess
+./TimeClock/css/.htaccess
+./TimeClock/js/.htaccess
+./TimeClock/php/.htaccess
+./TimeClock/.htaccess
+./.htaccess
+./TimeClock/php/connect.php
+
 
 
 TimeClock

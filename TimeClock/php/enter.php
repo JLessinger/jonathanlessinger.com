@@ -71,7 +71,7 @@
 		$msg = verify($post);
 		if(empty($msg)){
 
-			$sql = "INSERT INTO " . $tablename;
+			$sql = "INSERT INTO " . TABLENAME;
 			$fields = " (";
 			$values = " VALUES (";
 			foreach($post as $key => $val){
@@ -97,13 +97,13 @@
 			$values .= "'FALSE')";
 			$sql .= $fields . $values;
 
-		//	echo $sql;
+			//echo $sql;
 			
 			$result = mysqli_query($conn, $sql);
 			if($result){
 				echo "Added.<br>";
 			} else {
-				echo "Failed<br>.";
+				echo "Failed.<br>";
 			}
 		} else {
 			echo "ERRORS: <br>" . $msg;

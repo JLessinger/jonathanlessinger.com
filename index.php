@@ -1,15 +1,20 @@
+<?php
+   ob_start();
+   session_start();
+   if($_SESSION['auth']){
+        header("Location: ./TimeClock");
+   }
+   if($_GET['status'] == 'loggedout'){
+       echo "Logged out";
+   }
+?>
 <!DOCTYPE html>
 <html>
 <head>
     <!--meta http-equiv="refresh" content="0; url=./TimeClock/"-->
 </head>
 <body>
-    <?php
-        if($_GET['status'] == 'loggedout'){
-            echo "Logged out";
-        }
-    ?>
-    <form action='./php/login.php' method='POST'>
+    <form action='./php/login.php?from=home' method='POST'>
     Password:<input name='password' type='password'>
     <?php 
         if($_GET['status'] == "wrongpass"){

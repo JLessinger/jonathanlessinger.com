@@ -30,7 +30,7 @@ if(!$_SESSION['auth']){
 		</form>
 		<div id="updateSection">
 			<h1>Enter Time Slot</h1>
-			<form name="EnterForm" id="EnterForm" action="./TimeClock/php/enter.php" method="post" onsubmit="return(validForm(this.id))">
+			<form name="EnterForm" id="EnterForm" action="./php/enter.php" method="post" onsubmit="return(validForm(this.id))">
 				<ul>
 					<li>Name: </br>
 						Jonathan<input type="radio" name="Name" value="Jonathan">
