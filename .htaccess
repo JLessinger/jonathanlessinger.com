@@ -10,8 +10,6 @@
 ErrorDocument 403 /errordocs/404.html
 ErrorDocument 404 /errordocs/404.html
 
-
-
 #######not necessary
 #RewriteEngine On
 #RewriteBase /

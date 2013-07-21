@@ -66,11 +66,12 @@ function search_replace {
 	   comment="//"
 	   ;;
     esac
-    echo $1 $comment $tocomment -> $touncomment
+    echo $1 $comment $tocomment "->" $touncomment
   
     perl -i.bak -p00e "s@\s*$comment\s*$tocomment.*[\n\r](\s*)@$&$comment@gm" $1
     perl -i.bak -p00e "s@(\s*$comment\s*$touncomment.*[\n\r]\s*)($comment)@\$1@gm" $1
 
+    rm $1.bak
 }
 
 for f in ${files[@]}
