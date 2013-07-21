@@ -75,8 +75,8 @@ if(!$_SESSION['auth']){
 					<li>Name: </br> 
 						Jonathan<input type="radio" name="Name" value="Jonathan">
 						Heath<input type="radio" name="Name" value="Heath"></li>
-					<li>Start Date: <input type="date" name="startdate"></li>
-					<li>End Date: <input type="date" name="enddate"></li>
+					<li>Start Date: <input type="date" name="startdate">yyyy-mm-dd</li>
+					<li>End Date: <input type="date" name="enddate">yyyy-mm-dd</li>
 					<li>Min Time: <input type="number" name="minhours">:<input type="number" name="minminutes"></li>
 					<li>Max Time: <input type="number" name="maxhours">:<input type="number" name="maxminutes"></li>
 					<li>Account: <input type="text" name="Account"></li>
