@@ -1,9 +1,8 @@
 Options -Indexes
 
-
 #local
-#ErrorDocument 403 http://localhost:8888/Documents/Dev/jonathanlessinger.com/TimeClock/errordocs/tohome.php
+ErrorDocument 403 http://localhost:8888/Documents/Dev/jonathanlessinger.com/TimeClock/errordocs/tohome.php
 #ErrorDocument 404 http://localhost:8888/Documents/Dev/jonathanlessinger.com/TimeClock/errordocs/tohome.php
 #remote
-ErrorDocument 403 /TimeClock/errordocs/tohome.php
+#ErrorDocument 403 /TimeClock/errordocs/tohome.php
 ErrorDocument 404 /TimeClock/errordocs/tohome.php

@@ -49,9 +49,9 @@ then
     finish "already done"
 fi
 
-#declare -a files=("./TimeClock/css/.htaccess" "./TimeClock/js/.htaccess" "./TimeClock/php/.htaccess" "./TimeClock/.htaccess" "./.htaccess" "./TimeClock/php/connect.php");
+declare -a files=("./TimeClock/css/.htaccess" "./TimeClock/js/.htaccess" "./TimeClock/php/.htaccess" "./TimeClock/.htaccess" "./.htaccess" "./TimeClock/php/connect.php");
 
-declare -a files=("f1.php");
+#declare -a files=("f1.php");
 
 function search_replace {
     comment=""
@@ -66,7 +66,7 @@ function search_replace {
 	   comment="//"
 	   ;;
     esac
-    echo $1 $comment $tocomment $touncomment
+    echo $1 $comment $tocomment -> $touncomment
   
     perl -i.bak -p00e "s@\s*$comment\s*$tocomment.*[\n\r](\s*)@$&$comment@gm" $1
     perl -i.bak -p00e "s@(\s*$comment\s*$touncomment.*[\n\r]\s*)($comment)@\$1@gm" $1
