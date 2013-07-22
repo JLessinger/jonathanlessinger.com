@@ -13,9 +13,9 @@
 	//$fields = " (Name, Date, AmountTime, Account, HourlyRate, JobType, IsPaid) VALUES ";
 
 	//local
-	//$conn = init_connection_and_table(LHOST, USER, LPASS, LDBNAME, TABLENAME);
+	$conn = init_connection_and_table(LHOST, USER, LPASS, LDBNAME, TABLENAME);
 	//remote
-	$conn = init_connection_and_table(RHOST, USER, RPASS, RDBNAME, TABLENAME);
+	//$conn = init_connection_and_table(RHOST, USER, RPASS, RDBNAME, TABLENAME);
 
 	function init_connection_and_table($host, $user, $pass, $dbname, $tablename){
 		$conn = mysqli_connect($host, $user, $pass);

@@ -1,14 +1,24 @@
 #!/bin/bash
 
-if [[ ( -e ".local"  &&  -e ".remote" ) || ! ( -e ".local" || -e ".remote"  ) ]]
-then
-  echo "ambiguous location"
-  exit -1
-fi
-
+host=""
+config=".host"
 progname="host_config";
 tocomment="";
 touncomment="";
+
+if [[ -e $config ]]
+then
+   host=`cat $config`;
+   if [[ $host != "local" && $host != "remote" ]]
+   then
+       echo "bad config file"
+       exit -1
+   fi
+else
+  echo "no config file"
+  exit -1
+fi
+
 
 if [[ $1 = "-local" ]]
 then
@@ -20,44 +30,34 @@ then
     tocomment="local"
 elif [[ $1 = "-where" ]]
 then
-    if [[ -e ".local" ]]
-    then
-	echo "local"
-	exit 0
-    else
-        echo "remote"
-	exit 0
-    fi
+    echo $host
+    exit 0
 else
     echo "usage: "$progname" [-local | -remote | -where]"
     exit -1
 fi
 
 function finish {
-    touch .$touncomment
-    if [ -e .$tocomment ]
-    then
-	yes | rm .$tocomment
-    fi
+    echo $touncomment > $config
 
     echo $1
     exit 0
 }
 
-if [ -e .$touncomment ] 
+if [ `cat $config` == $touncomment ] 
 then
     finish "already done"
 fi
 
 declare -a files=("./TimeClock/css/.htaccess" "./TimeClock/js/.htaccess" "./TimeClock/php/.htaccess" "./TimeClock/.htaccess" "./.htaccess" "./TimeClock/php/connect.php");
 
-#declare -a files=("f1.php");
+#declare -a files=("./f.php");
 
 function search_replace {
     comment=""
     filename=$(basename "$1")
     extension="${filename##*.}"
-#    echo $extension
+
     case "$extension" in
 	"htaccess")
 	   comment="#"
@@ -66,10 +66,10 @@ function search_replace {
 	   comment="//"
 	   ;;
     esac
-    echo $1 $comment $tocomment "->" $touncomment
+    echo $1 $tocomment "->" $touncomment
   
-    perl -i.bak -p00e "s@\s*$comment\s*$tocomment.*[\n\r](\s*)@$&$comment@gm" $1
-    perl -i.bak -p00e "s@(\s*$comment\s*$touncomment.*[\n\r]\s*)($comment)@\$1@gm" $1
+    perl -i.bak -p00e "s@(\s*)($comment)+(\s*$tocomment.*[\n\r])(\s*)@\$1\$2\$3\$4$comment@gm" $1
+    perl -i.bak -p00e "s@(\s*)($comment)+(\s*$touncomment.*[\n\r]\s*)($comment)+@\$1\$2\$3@gm" $1
 
     rm $1.bak
 }
